@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A friendly and modern space for connection and personalized experiences.">
+    <meta name="keywords" content="connection, personalized experiences, friendly, modern">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Welcome to My Space">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3687/3687415.png" type="image/png">
+    <title>Welcome to My Space</title>
+    <style>
+        /* General Styles */
+        :root {
+            --primary-color: #ff4081;
+            --background-dark: #1a1a1a;
+            --background-light: #ffffff;
+            --text-dark: #ffffff;
+            --text-light: #1a1a1a;
+            --card-dark: #2a2a2a;
+            --card-light: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: var(--background-light);
+            color: var(--text-light);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: var(--card-dark);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        .light-mode .container {
+            background: var(--card-light);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Image Container */
+        .image-container {
+            max-width: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .image-container img {
+            width: 100%;
+            display: block;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Buttons and Inputs */
+        button, input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        input, textarea {
+            background: var(--background-dark);
+            color: var(--text-dark);
+            border: 1px solid var(--primary-color);
+        }
+
+        .light-mode input, .light-mode textarea {
+            background: var(--background-light);
+            color: var(--text-light);
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e60073;
+            transform: scale(1.05);
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: var(--card-dark);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+        }
+
+        .light-mode .service-card {
+            background: var(--card-light);
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .service-description {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .service-card:hover .service-description {
+            display: block;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        .fab img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Dark/Light Mode Toggle */
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--card-dark);
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .light-mode .mode-toggle {
+            background: var(--card-light);
+        }
+
+        .mode-toggle img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYKFB1BGKC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CYKFB1BGKC');
+    </script>
+</head>
+<body>
+    <!-- Dark/Light Mode Toggle -->
+    <div class="mode-toggle" onclick="toggleMode()">
+        <img src="https://cdn-icons-png.flaticon.com/512/702/702814.png" alt="Toggle Mode">
+    </div>
+
+    <!-- Floating Contact Button -->
+    <a href="https://wa.me/+2349168013283" class="fab" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+    </a>
+
+    <div class="container">
+        <h1>Welcome to My Space</h1>
+        <p>Let’s connect and create unforgettable moments together.</p>
+        <div class="image-container">
+            <img src="c:\Users\USER\OneDrive\Documents\WhatsApp Image 2025-02-07 at 14.53.21_739719c2.jpg" alt="Profile Picture">
+        </div>
+    </div>
+
+    <div class="container section">
+        <h2>About Me</h2>
+        <p>
+            Hi there! I’m Queen Gracious Sandra, a friendly and professional companion who values meaningful connections. Whether you’re looking for a chat, a laugh, or a personalized experience, I’m here to make it special. Let’s create memories together!
+        </p>
+    </div>
+
+    <div class="container section">
+        <div class="container section">
+            <h2>Services & Pricing</h2>
+            <div class="service-card" onclick="navigateTo('service1.html')">
+                <h3>Basic Video Call</h3>
+                <div class="service-description">
+                    Enjoy personalized video calls tailored just for you.
+                </div>
+            </div>
+            <div class="service-card" onclick="navigateTo('service2.html')">
+                <h3>Premium Video Call</h3>
+                <div class="service-description">
+                    Let’s create something unique and unforgettable.
+                </div>
+            </div>
+            <div class="service-card" onclick="navigateTo('service3.html')">
+                <h3>Exclusive VIP Experience</h3>
+                <div class="service-description">
+                    Exclusive experiences for the most discerning clients.
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="container section">
+        <h2>Testimonials</h2>
+        <p id="testimonial">“An amazing experience! Highly recommended.” – Happy Client</p>
+    </div>
+
+    <div class="container section">
+        <h2>Contact Me</h2>
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button onclick="sendMessage()">Send Message</button>
+        <p id="contactMessage"></p>
+    </div>
+
+    <footer>
+        <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+        <a href="terms-of-service.html" target="_blank">Terms of Service</a>
+    </footer>
+
+    <script>
+        // Dark/Light Mode Toggle
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+        }
+
+        // Dynamic Testimonials
+        const testimonials = [
+            "“An amazing experience! Highly recommended.” – Happy Client",
+            "“Friendly, professional, and unforgettable!” – Satisfied User",
+            "“The best connection I’ve ever had.” – Anonymous"
+        ];
+
+        let index = 0;
+        function changeTestimonial() {
+            document.getElementById('testimonial').innerText = testimonials[index];
+            index = (index + 1) % testimonials.length;
+        }
+        setInterval(changeTestimonial, 4000); // Change every 4 seconds
+
+        // Message Sending Functionality
+        function sendMessage() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                const phoneNumber = '+2349168013283'; // Replace with actual WhatsApp number
+                const encodedMessage = encodeURIComponent(`Hello, my name is ${name}. ${message}`);
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                window.location.href = whatsappUrl;
+
+                document.getElementById('contactMessage').innerText = 'Message sent successfully! I’ll get back to you soon.';
+            } else {
+                document.getElementById('contactMessage').innerText = 'Please fill in all fields.';
+            }
+        }
+    
+         // Navigation function for service cards
+         function navigateTo(page) {
+                window.location.href = page;
+            }
+
+    </script>
+</body>
+</html>

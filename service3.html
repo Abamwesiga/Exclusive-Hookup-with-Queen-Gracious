@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive VIP Experience</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #2a2a2a;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+        .image-container {
+            max-width: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .image-container img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+        .service-card {
+            background: #3a3a3a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+        }
+        .service-card:hover {
+            transform: scale(1.05);
+            background: #ff4081;
+            color: white;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #ff4081;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #e60073;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exclusive VIP Experience</h1>
+        <p>Enjoy a one-hour personalized VIP experience via video call, designed to provide a high-quality and private interaction with Queen Gracious. This service guarantees confidentiality, a premium experience, and direct engagement.</p>
+        <p><strong>Price:</strong> ₦30,000 per session</p>
+        <a href="hookupsite.html">Back to Home</a>
+    </div>
+</body>
+</html>
